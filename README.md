@@ -44,31 +44,7 @@ docker-compose up
 
 This will start the application, and it can be accessed at `http://localhost:8080`.
 
-### Scripts
 
-You can create a `start.sh` script for convenience:
-
-```sh
-#!/bin/bash
-
-# Build the Docker image
-docker build -t timetracker-frontend .
-
-# Deploy the container
-docker-compose up
-```
-
-Make the script executable:
-
-```sh
-chmod +x start.sh
-```
-
-Now, you can start your application using:
-
-```sh
-./start.sh
-```
 
 ## Configuration
 
