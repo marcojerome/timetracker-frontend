@@ -15,7 +15,7 @@ This project is a web frontend for the TimeTracker application, which keeps trac
 ### Clone the Repository
 
 ```sh
-git clone <your-repository-url>
+git clone https://github.com/marcojerome/timetracker-frontend.git
 cd timetracker-frontend
 ```
 
