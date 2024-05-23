@@ -18,6 +18,13 @@ This project is a web frontend for the TimeTracker application, which keeps trac
 git clone https://github.com/marcojerome/timetracker-frontend.git
 cd timetracker-frontend
 ```
+### Build the Application
+
+Use Maven to build the application:
+
+```sh
+mvn clean package
+```
 
 ### Build the Docker Image
 
@@ -79,6 +86,10 @@ The `application.properties` file contains configuration settings for the TimeTr
 
 
 ## Usage
+
+### Access the Application
+
+1. Access the application at `http://localhost:8080`.
 
 ### View Employee Records
 
