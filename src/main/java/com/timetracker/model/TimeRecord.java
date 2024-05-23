@@ -16,6 +16,10 @@ public class TimeRecord {
         this.email = email;
     }
 
+    // Default Constructor
+    public TimeRecord() {
+    }
+
     /**
      * Checks if any field (start, end, or email) is null.
      * @return True if any field is null, false otherwise.

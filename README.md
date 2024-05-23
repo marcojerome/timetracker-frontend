@@ -31,7 +31,7 @@ mvn clean package
 Use the provided Dockerfile to build the Docker image:
 
 ```sh
-docker build -t timetracker-frontend .
+docker-compose build
 ```
 
 ### Deploy the Application

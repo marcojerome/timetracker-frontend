@@ -131,7 +131,12 @@ public class TimeTrackerService {
                     recordsByEmail.get(email).addAll(queriedRecords);
                 }
                 // Get records from cache
-                result = recordsByEmail.get(email).subList(offset, Math.min(offset + length, recordsByEmail.get(email).size()));
+                int endIndex = Math.min(offset + length, recordsByEmail.get(email).size());
+                if (offset >= endIndex) {
+                    return new ArrayList<>();
+                }
+                result = recordsByEmail.get(email).subList(offset, endIndex);
+
             } else {
                 // Fetch and cache records if not available in cache
                 result = queryRecords(email, 0, offset + length);
