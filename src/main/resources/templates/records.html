@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TimeTracker - Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .pagination a {
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            color: #333;
+        }
+        .pagination a:hover {
+            background-color: #ddd;
+        }
+        .pagination .disabled {
+            color: #999;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+<h1>Time Records for <span th:text="${email}">Email</span></h1>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Start Date</th>
+            <th>Start Time</th>
+            <th>End Date</th>
+            <th>End Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="record : ${records}">
+            <td th:text="${record.getStartDate()}">Start Date</td>
+            <td th:text="${record.getStartTime()}">Start Time</td>
+            <td th:text="${record.getEndDate()}">End Date</td>
+            <td th:text="${record.getEndTime()}">End Time</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p th:if="${#lists.isEmpty(records)}">No more records found for <span th:text="${email}">this email</span>.</p>
+
+    <div class="pagination">
+        <a th:classappend="${page == 1} ? 'disabled'" th:href="@{/records(email=${email}, page=${page - 1})}" th:if="${page > 0}">Previous</a>
+        <a th:each="i : ${#numbers.sequence(1, availablePages)}"
+           th:classappend="${i == page} ? 'disabled'"
+           th:href="@{/records(email=${email}, page=${i})}" th:text="${i}">Page</a>
+        <a th:classappend="${#lists.isEmpty(records)} ? 'disabled'" th:href="@{/records(email=${email}, page=${page + 1})}">Next</a>
+
+    </div>
+
+</div>
+
+<div class="pagination">
+    <a th:href="@{/(email=${email})}">Back to Home</a>
+    <a th:href="@{/records(email=${email}, page=${page}, fetchMorePages=true)}"
+       th:text="'Fetch ' + ${bulkFetchPages} + ' More Pages'"> Fetch More Pages</a>
+</div>
+
+</body>
+</html>

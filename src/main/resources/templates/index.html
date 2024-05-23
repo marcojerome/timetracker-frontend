@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TimeTracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            font-size: 18px;
+        }
+        form {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            text-align: left;
+            width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        label, input, button {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        button {
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            background-color: #f2f2f2;
+            color: #333;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ddd;
+        }
+        .error-message {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>TimeTracker</h1>
+
+    <div th:if="${recordResponse != 'null' && recordResponse.contains('Error:')}">
+        <p th:text="${recordResponse}" class="error-message"></p>
+    </div>
+
+    <div th:if="${recordResponse != 'null' && !recordResponse.contains('Error:')}">
+        <p th:text="${recordResponse}"></p>
+    </div>
+
+    <h2>View Employee Records</h2>
+    <p>Enter the email of the employee to view their time tracking records.</p>
+    <form action="/records" method="get">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required th:value="${email}" autofocus>
+        <button type="submit">Get Records</button>
+    </form>
+
+    <h2>Record Employee Time</h2>
+    <p>Enter the details below to record the working hours of an employee.</p>
+    <form action="/record" method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required th:value="${email}" autofocus>
+        <label for="startTime">Start Time:</label>
+        <input type="datetime-local" id="startTime" name="startTime" required>
+        <label for="endTime">End Time:</label>
+        <input type="datetime-local" id="endTime" name="endTime" required>
+        <button type="submit">Record Time</button>
+    </form>
+</div>
+</body>
+</html>
