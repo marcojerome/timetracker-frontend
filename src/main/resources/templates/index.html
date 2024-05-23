@@ -52,11 +52,11 @@
 <div class="container">
     <h1>TimeTracker</h1>
 
-    <div th:if="${recordResponse != 'null' && recordResponse.contains('Error:')}">
+    <div th:if="${recordResponse != '' && recordResponse.contains('Error:')}">
         <p th:text="${recordResponse}" class="error-message"></p>
     </div>
 
-    <div th:if="${recordResponse != 'null' && !recordResponse.contains('Error:')}">
+    <div th:if="${recordResponse != '' && !recordResponse.contains('Error:')}">
         <p th:text="${recordResponse}"></p>
     </div>
 

@@ -35,7 +35,7 @@ docker-compose build
 ```
 
 ### Deploy the Application
-
+6
 Use docker-compose to deploy and start the frontend container:
 
 ```sh
