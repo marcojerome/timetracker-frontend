@@ -71,13 +71,15 @@ The `application.properties` file contains configuration settings for the TimeTr
 
 1. Enter the email of the employee to view their time tracking records.
 2. Click on "Get Records".
+3. The records will be displayed in a table, from the oldest to the newest.
+4. Use the pagination controls to navigate through the records. 
+5. It is possible to load more pages at once using the "Fetch More Pages" button.
 
 ### Record Employee Time
 
 1. Enter the email of the employee.
-2. Enter the work start time.
-3. Enter the work end time.
-4. Click on "Record Time".
+2. Enter the work start and end time. 
+3. Click on "Record Time".
 
 ## Possible Improvements and Weaknesses
 
