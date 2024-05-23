@@ -6,7 +6,7 @@ This project is a web frontend for the TimeTracker application, which keeps trac
 ## Prerequisites
 
 - Docker and Docker Compose installed
-- Java Development Kit (JDK) 17 installed
+- Java Development Kit (JDK) 11 installed
 - Maven installed
 
 
